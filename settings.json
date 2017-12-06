@@ -1,0 +1,18 @@
+{
+    "default": {
+        "start_time": "2017-01-01 00:00:00",
+        "mechine_id": 0
+    },
+    "role": {
+        "start_time": "2017-01-01 00:00:00",
+        "mechine_id": 101
+    },
+    "item": {
+        "start_time": "2017-01-01 00:00:00",
+        "mechine_id": 101
+    },
+    "continuous": {
+        "start": 1000,
+        "continuous": true
+    }
+}
