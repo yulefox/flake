@@ -42,7 +42,7 @@ var (
 )
 
 func init() {
-	data, err := ioutil.ReadFile("settings.json")
+	data, err := ioutil.ReadFile("flake.json")
 	if err != nil {
 		log.Fatal(err)
 	}
