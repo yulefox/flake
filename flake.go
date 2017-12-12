@@ -5,6 +5,7 @@ import (
 	"errors"
 	"io/ioutil"
 	"log"
+	"strconv"
 	"sync"
 	"time"
 )
@@ -65,6 +66,24 @@ func GenID(name string) (uint64, error) {
 		return 0, errors.New("flake `" + name + "` NOT found")
 	}
 	return f.genID()
+}
+
+// GenStrID 生成 ID
+func GenStrID(name string) (string, error) {
+	id, err := GenID(name)
+	if err != nil {
+		return "", err
+	}
+	return strconv.FormatUint(id, 10), nil
+}
+
+// GenHexID 生成 ID
+func GenHexID(name string) (string, error) {
+	id, err := GenID(name)
+	if err != nil {
+		return "", err
+	}
+	return strconv.FormatUint(id, 16), nil
 }
 
 func (s *Settings) init(name string) {
