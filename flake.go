@@ -59,6 +59,22 @@ func init() {
 	}
 }
 
+// Start 修改起始值
+func Start(name string, sn uint64) error {
+	f := get(name)
+	if f == nil {
+		return errors.New("flake `" + name + "` NOT found")
+	}
+	if !f.continuous {
+		return errors.New("flake `" + name + "` NOT continuous")
+	}
+	f.mutex.Lock()
+	defer f.mutex.Unlock()
+
+	f.sequence = sn
+	return nil
+}
+
 // GenID 生成 ID
 func GenID(name string) (uint64, error) {
 	f := get(name)
